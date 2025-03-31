@@ -1,0 +1,19 @@
+{
+  "name": "final-project-youngsang-cho1",
+  "version": "1.0.0",
+  "description": "## Overview",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-Youngsang-Cho1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-Youngsang-Cho1/issues"
+  },
+  "homepage": "https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-Youngsang-Cho1#readme"
+}
