@@ -15,7 +15,8 @@ Special Instructions for Using Form (or Login details if auth is part of your pr
 
 URL for form 
 ---
-http://localhost:3000/tasks/new
+http://localhost:3000/login
+http://localhost:3000/tasks/new (after registering or logging in)
 
 URL for form result
 ---
