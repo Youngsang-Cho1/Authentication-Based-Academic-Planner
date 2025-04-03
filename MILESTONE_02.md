@@ -8,20 +8,25 @@ https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment
 
 Special Instructions for Using Form (or Login details if auth is part of your project)
 ---
-(TODO: if your app requires special instructions to use or if your app requires authentication, add information here; otherwise, leave blank)
+- To access the application, visit `http://localhost:3000` after running `node src/app.mjs`.
+- Basic user authentication is implemented using username, email, and password.
+- After logging in or registering, it will be redirected to the task list.
+- You can add new tasks at `/tasks/new`. Edit and delete features will be implemented in the next milestone.
 
 URL for form 
 ---
-(TODO: add link to a functioning form; okay to use temporary domain of your own codespaces container)
+http://localhost:3000/tasks/new
 
 URL for form result
 ---
-(TODO: if applicable, add link to page that shows results of submitting form)
+http://localhost:3000/tasks
 
 URL to github that shows line of code where research topic(s) are used / implemented
 --- 
-(TODO: add link to github url that shows line or lines of code that demonstrate in progress work on at least one research topic)
+[MongoDB Data Models](https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment-Youngsang-Cho1/blob/main/src/db.mjs) line 7-23
+    - Mongoose schemas `Task` and `User` are defined in `db.mjs`.
 
 References 
 ---
-(TODO: if applicable, links to annotated lines of code in github repository that were based off of tutorials / articles / sample projects)
+[Official Mongoose Documentation](https://mongoosejs.com/docs/guide.html)
+    - Used for setting up Mongoose schemas and defining Task and User models.

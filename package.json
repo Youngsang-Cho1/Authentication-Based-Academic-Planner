@@ -1,5 +1,5 @@
 {
-  "name": "final-project-youngsang-cho1",
+  "name": "final-project-deployment-youngsang-cho1",
   "version": "1.0.0",
   "description": "## Overview",
   "main": "index.js",
@@ -8,12 +8,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-Youngsang-Cho1.git"
+    "url": "git+https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment-Youngsang-Cho1.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-Youngsang-Cho1/issues"
+    "url": "https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment-Youngsang-Cho1/issues"
   },
-  "homepage": "https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-Youngsang-Cho1#readme"
+  "homepage": "https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment-Youngsang-Cho1#readme",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "hbs": "^4.2.0",
+    "mongo-sanitize": "^1.1.0",
+    "mongoose": "^8.13.1",
+    "mongoose-slug-plugin": "^2.1.0"
+  }
 }
