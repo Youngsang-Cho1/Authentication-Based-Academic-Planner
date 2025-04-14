@@ -1,0 +1,12 @@
+{
+    "name": "Todo List App",
+    "postCreateCommand": "npm install",
+    "postStartCommand": "npm start",
+    "customizations": {
+      "vscode": {
+        "settings": {},
+        "extensions": []
+      }
+    }
+  }
+  
