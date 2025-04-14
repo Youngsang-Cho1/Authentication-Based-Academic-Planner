@@ -1,5 +1,5 @@
 {
     "name": "Final Project",
     "postCreateCommand": "npm install",
-    "postStartCommand": "npm start || echo 'Autostart failed, please run manually'"
+    "postStartCommand": "bash -c 'npm start'"
 }
