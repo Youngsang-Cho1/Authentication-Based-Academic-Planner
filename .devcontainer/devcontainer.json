@@ -1,5 +1,4 @@
 {
-    "name": "Final Project",
     "postCreateCommand": "npm install",
-    "postStartCommand": "npm start"
-}
+    "postAttachCommand": "npm start"
+  }

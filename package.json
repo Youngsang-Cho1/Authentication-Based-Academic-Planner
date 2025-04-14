@@ -5,7 +5,7 @@
   "type": "module",
   "main": "src/app.mjs",
   "scripts": {
-    "start": "pm2 start src/app.mjs --no-daemon",
+    "start": "node src/app.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
