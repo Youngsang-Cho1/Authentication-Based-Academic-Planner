@@ -2,7 +2,12 @@ import mongoose from 'mongoose';
 import dotenv from "dotenv";
 
 dotenv.config();
-mongoose.connect(process.env.DSN);
+mongoose.connect(process.env.DSN, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(() => console.log("MongoDB Connected"))
+  .catch(err => console.error("Connection Error:", err));
 
 const TaskSchema = new mongoose.Schema({
     title: { type: String, required: true },

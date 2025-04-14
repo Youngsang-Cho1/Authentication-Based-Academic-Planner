@@ -1,4 +1,8 @@
 {
-    "postCreateCommand": "npm install",
-    "postAttachCommand": "npm start"
+    "updateContentCommand": "npm install",
+    "postStartCommand": "npx --yes pm2 start src/app.mjs",
+    "remoteEnv": {
+      "PORT": "${PORT}",
+      "DSN": "${DSN}"
+    }
   }
