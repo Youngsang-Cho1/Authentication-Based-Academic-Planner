@@ -1,12 +1,5 @@
 {
-    "name": "Todo List App",
+    "name": "Final Project",
     "postCreateCommand": "npm install",
-    "postStartCommand": "npm start",
-    "customizations": {
-      "vscode": {
-        "settings": {},
-        "extensions": []
-      }
-    }
-  }
-  
+    "postStartCommand": "npm start || echo 'Autostart failed, please run manually'"
+}
