@@ -1,5 +1,5 @@
 {
     "name": "Final Project",
     "postCreateCommand": "npm install",
-    "postStartCommand": "npm start || echo 'npm start failed'"
+    "postAttachCommand": "npm start"
 }
