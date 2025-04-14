@@ -2,6 +2,7 @@
   "name": "final-project-deployment-youngsang-cho1",
   "version": "1.0.0",
   "description": "## Overview",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "start": "node src/app.mjs",
