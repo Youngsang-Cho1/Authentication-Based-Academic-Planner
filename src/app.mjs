@@ -4,6 +4,7 @@ import path from "path";
 import dotenv from "dotenv";
 import tasksRoutes from "./routes/tasks.mjs";
 import authRoutes from "./routes/auth.mjs";
+import { connectToDB } from "./db.mjs";
 
 dotenv.config();
 const app = express();
@@ -34,8 +35,12 @@ app.use((req, res, next) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+connectToDB().then(() => {
+  app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+  });
+}).catch(err => {
+  console.error("Failed to connect to DB. Server not started.", err);
 });
 
 // cd desktop/final-project-deployment-Youngsang-Cho1

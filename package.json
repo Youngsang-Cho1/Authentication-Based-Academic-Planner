@@ -6,7 +6,8 @@
   "main": "src/app.mjs",
   "scripts": {
     "start": "node src/app.mjs",
-    "test": "echo \"Error: no test specified\" && exit 1"
+     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -19,14 +20,20 @@
   },
   "homepage": "https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment-Youngsang-Cho1#readme",
   "dependencies": {
-    "express": "^5.1.0",
-    "mongoose": "^8.13.1",
-    "pm2": "^5.2.2",                             
+    "bcryptjs": "^3.0.2",
     "dotenv": "^16.4.7",
+    "express": "^5.1.0",
     "express-session": "^1.18.1",
     "hbs": "^4.2.0",
     "mongo-sanitize": "^1.1.0",
+    "mongoose": "^8.13.1",
     "mongoose-slug-plugin": "^2.1.0",
-    "bcryptjs": "^3.0.2"
+    "pm2": "^5.2.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.24.0",
+    "eslint": "^9.24.0",
+    "globals": "^16.0.0",
+    "jest": "^29.7.0"
   }
 }

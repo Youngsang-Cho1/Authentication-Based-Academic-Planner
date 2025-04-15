@@ -1,4 +1,4 @@
-import bcrypt from 'bcryptjs';
+import bcrypt from 'bcryptjs'; // Research Topic: MongoDB Auth - Authentication w/ bcrypt
 import express from "express";
 import { User } from "../db.mjs";
 

@@ -1,8 +1,28 @@
-<h2>Full Task List</h2>
+<form method="GET" action="/tasks">
+  <select name="sort">
+    <option value="">No Sort</option>
+    <option value="dueDate">Sort by Due Date</option>
+    <option value="title">Sort by Title</option>
+  </select>
+  
+  <select name="completed">
+    <option value="">All</option>
+    <option value="true">Completed</option>
+    <option value="false">Not Completed</option>
+  </select>
+  
+  <button type="submit">Apply</button>
+</form>
+
+<h2>Task List</h2>
 <ul>
-    {{#each tasks}}
+  {{#each tasks}}
     <li>
-        Title : {{title}} - Description : {{description}} - Due : {{dueDate}}
+      {{title}} - {{description}} - {{dueDate}} - Completed: {{completed}}
+      <a href="/tasks/{{_id}}/edit">Edit</a>
+      <form action="/tasks/{{_id}}/delete" method="POST" style="display:inline;">
+        <button type="submit">Delete</button>
+      </form>
     </li>
-    {{/each}}
+  {{/each}}
 </ul>

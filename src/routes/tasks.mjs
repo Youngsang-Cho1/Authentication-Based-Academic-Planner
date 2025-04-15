@@ -10,10 +10,25 @@ const authMiddleware = (req, res, next) => {
     next();
   };
 
+  // Research Topic: Task Sorting & Filtering
 router.get("/", authMiddleware, async (req, res) => {
-    const tasks = await Task.find({user: req.session.user._id}).sort({dueDate: 1});
+    const filter = { user: req.session.user._id };
+    if (req.query.completed === "true") {
+      filter.completed = true;
+    } else if (req.query.completed === "false") {
+      filter.completed = false;
+    }
+
+    let sortOption = {};
+    if (req.query.sort === "dueDate") {
+      sortOption = { dueDate: 1 };
+    } else if (req.query.sort === "title") {
+      sortOption = { title: 1 };
+    }
+  
+    const tasks = await Task.find(filter).sort(sortOption);
     res.render("task-list", { tasks });
-});
+  });
 
 router.post("/", authMiddleware, async(req,res) => {
     const {title, description, dueDate} = req.body;
@@ -30,5 +45,38 @@ router.post("/", authMiddleware, async(req,res) => {
 router.get("/new", authMiddleware, (req,res) => {
     res.render("new-task");
 });
+
+router.get("/:id/edit", authMiddleware, async (req, res) => {
+    const task = await Task.findOne({ _id: req.params.id, user: req.session.user._id });
+    if (!task) {
+      return res.status(404).send("Task not found");
+    }
+    res.render("edit-task", { task });
+  });
+
+  router.post("/:id/edit", authMiddleware, async (req, res) => {
+    const { title, description, dueDate, completed } = req.body;
+    const task = await Task.findOne({ _id: req.params.id, user: req.session.user._id });
+    if (!task) {
+      return res.status(404).send("Task not found");
+    }
+  
+    task.title = title;
+    task.description = description;
+    task.dueDate = dueDate;
+    task.completed = (completed === "on") ? true : false;
+  
+    try {
+      await task.save();
+      res.redirect("/tasks");
+    } catch (error) {
+      res.status(500).send("Error updating task");
+    }
+  });
+
+  router.post("/:id/delete", authMiddleware, async (req, res) => {
+    await Task.deleteOne({ _id: req.params.id, user: req.session.user._id });
+    res.redirect("/tasks");
+  });
 
 export default router;
