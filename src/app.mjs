@@ -18,7 +18,7 @@ app.use(
   );
 
 app.set("view engine", "hbs");
-app.set("views", path.join(path.resolve(), "src", "views"));
+app.set("views", path.join(path.resolve(), "views"));
 
 app.use(express.static(path.join(path.resolve(), "public")));
 app.use(express.urlencoded({ extended: true }));
