@@ -15,11 +15,11 @@ https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment
 
 URL for deployed site 
 ---
-http://localhost:3000
+https://stunning-adventure-976vj5vq5v9ph7gwq-3000.app.github.dev/
 
 URL for form 1 (from previous milestone) 
 ---
-http://localhost:3000/login
+https://stunning-adventure-976vj5vq5v9ph7gwq-3000.app.github.dev/login
 
 Special Instructions for Form 1
 ---
@@ -29,7 +29,7 @@ Special Instructions for Form 1
 
 URL for form 2 (from previous milestone) 
 ---
-http://localhost:3000/tasks/new
+https://stunning-adventure-976vj5vq5v9ph7gwq-3000.app.github.dev/tasks/new
 
 Special Instructions for Form 2
 ---
@@ -38,7 +38,7 @@ Special Instructions for Form 2
 
 URL for form 3 (for current milestone)
 ---
-http://localhost:3000/tasks/:id/edit
+https://stunning-adventure-976vj5vq5v9ph7gwq-3000.app.github.dev/tasks/:id/edit
 
 Special Instructions for Form 3
 ---
