@@ -27,7 +27,9 @@ router.get("/", authMiddleware, async (req, res) => {
     }
   
     const tasks = await Task.find(filter).sort(sortOption);
-    res.render("task-list", { tasks });
+    const completedTasks = (tasks.filter(task => task.completed)).map(task => task.title);
+    const notCompletedTasks = tasks.filter(task => !task.completed).map(task => task.title);
+    res.render("task-list", { tasks: tasks, completed :completedTasks, notCompleted: notCompletedTasks });
   });
 
 router.post("/", authMiddleware, async(req,res) => {
