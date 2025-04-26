@@ -32,9 +32,9 @@ app.use("/tasks", tasksRoutes);
 
 app.get("/", (req, res) => {
   res.redirect("/login");
-})
+});
 
-app.use((req, res, next) => {
+app.use((req, res) => {
   res.status(404).send("Page not found");
 });
 

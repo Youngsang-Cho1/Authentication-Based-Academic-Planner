@@ -35,11 +35,12 @@ router.get("/", authMiddleware, async (req, res) => {
 router.post("/", authMiddleware, async(req,res) => {
     const {title, description, dueDate} = req.body;
     try {
-        const newTask = new Task ({title: title, description: description, dueDate: dueDate, completed:false, user: req.session.user._id})
-        await newTask.save()
-        res.redirect("/tasks")
+        const newTask = new Task({title: title, description: description, dueDate: dueDate, completed:false, user: req.session.user._id});
+        await newTask.save();
+        res.redirect("/tasks");
     }
     catch (error){
+      console.error(error);
         res.status(500).send("Error creating task");
     }
 });
@@ -72,6 +73,7 @@ router.get("/:id/edit", authMiddleware, async (req, res) => {
       await task.save();
       res.redirect("/tasks");
     } catch (error) {
+      console.error(error);
       res.status(500).send("Error updating task");
     }
   });
