@@ -1,31 +1,96 @@
-# Todo List Web Application
+# ✅ Authentication Based Academic Planner Web Application
 
-## Overview
+A full-stack web app for managing daily tasks efficiently. Users can add, edit, delete, and mark tasks as completed. Built with **Express** and **MongoDB**, the app provides a clean interface and persistent storage for task management.
 
-Remembering tasks and managing all daily activities efficiently is often challenging. The Todo list Web Application will provide a simple but effective solution for this problem through enabling users to add, edit, and delete their to-do tasks. The application will allow users to add new tasks with title, description, and due date. Users can also mark it as completed and delete them when they do not need the task on their list anymore. This application will be implemented through using Express and MongoDB.
+---
 
-## Data Model
+## 🛠️ Technologies Used
 
-The application will store Users and Tasks.
+- ⚡ Node.js + Express — backend server and routing  
+- 🍃 MongoDB + Mongoose — database and schema modeling  
+- 🔑 bcrypt — secure password hashing  
+- 🛡️ MongoDB Authentication — user login & data privacy  
+- 🎨 Handlebars (HBS) — templating for dynamic views  
+- ✅ ESLint — coding standards and best practices  
+- 🧪 Jest — unit testing (form submission & task completion)
 
-- Users can have multiple tasks (by references)
-- Each task will include a title, description, due date, and completion status
+---
 
-An Example User:
+## ✨ Features
 
+- 👤 User registration & login (with hashed passwords)  
+- 📝 Add, edit, and delete tasks  
+- 📅 Due date tracking for each task  
+- ✅ Mark tasks as completed  
+- 🔍 Sort & filter tasks by due date or completion status  
+- 📊 Persistent user-task relationship (one-to-many)
+
+---
+
+## 📦 Local Setup
+
+### 1. Clone the Repo
+```bash
+git clone https://github.com/Youngsang-Cho1/Authentication-Based-Academic-Planner
+cd Authentication-Based-Academic-Planner
+```
+
+### 2. Install Dependencies
+```bash
+npm install
+```
+
+### 3. Set Up Environment Variables
+Create a `.env` file:
+```
+MONGODB_URI=mongodb://localhost:27017/todo-app
+SESSION_SECRET=your-secret-key
+PORT=3000
+```
+
+### 4. Run the App
+```bash
+npm start
+```
+
+App will be live at: [http://localhost:3000](http://localhost:3000)
+
+---
+
+## 📡 Routes
+
+### `/login`  
+- Login & registration page  
+
+### `/tasks`  
+- View all tasks for the logged-in user  
+
+### `/tasks/new`  
+- Add a new task  
+
+### `/tasks/:id/edit`  
+- Edit an existing task  
+
+### `Delete (button)`  
+- Remove a task  
+
+---
+
+## 🧠 Data Model
+
+### User
 ```javascript
 {
   username: "Aiden",
-  hash: // a password hash,
-  tasks: // an array of references to Task documents
+  hash: "encrypted_password",
+  tasks: [ObjectId, ObjectId]
 }
 ```
 
-An Example Task:
-
+### Task
 ```javascript
 {
-  user: // a reference to a User object,
+  user: ObjectId,
   title: "AIT 467 Homework 1",
   description: "Submit GitHub repo link on Gradescope",
   dueDate: "2024-03-19",
@@ -33,59 +98,28 @@ An Example Task:
 }
 ```
 
+---
 
-## [Link to Commented First Draft Schema](https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-Youngsang-Cho1/tree/master/db.mjs) 
+## 🧾 Project Structure
 
-## Wireframes
-/login - Login page
-documentation/IMG_0269.PNG
+```
+Authentication-Based-Academic-Planner/
+├── __tests__/           # Jest test cases
+├── .devcontainer/       # VS Code dev container setup
+├── public/              # static assets (css, js)
+├── src/                 # main app source code (Express routes, db, views 등)
+├── .env                 # environment variables (ignored in git)
+├── .eslint.cjs          # ESLint config
+├── .gitignore
+├── eslint.config.js     # ESLint JS config
+├── jest.config.js       # Jest test config
+├── package.json         # project dependencies
+├── package-lock.json
+└── README.md
+```
 
-/tasks - Page showing all tasks
-documentation/IMG_0270.PNG
+---
 
-/tasks/new - Page for adding a new task
-documentation/IMG_0271.PNG
+## 📝 License
 
-/tasks/:id/edit - Page for editing a task
-documentation/IMG_0272.PNG
-
-## Site map
-
-Home Page (/)
-|-- Login (/login)
-      |-- Task List (/tasks)
-        |-- Add Task (/tasks/new)
-        |-- Edit Task (/tasks/:id/edit)
-        |-- Delete Task (button action)
-
-## User Stories or Use Cases
-
-1. as non-registered user, I can register a new account with the site
-2. as a user, I can log in to the site
-3. as a user, I can add tasks so that I can keep track of my work
-4. as a user, I can edit tasks so that I can update details of my task
-5. as a user, I can delete tasks so that I can remove completed or unnecessary tasks
-6. as a user, I can mark tasks as completed so that I can track my progress.
-
-## Research Topics
-
-(3 points) ESLint Integration
-- Used to enforce coding standards and best practices automatically.
-
-(3 points) Unit Testing with Jest
-- Implements at least 4 test cases for form submission and task completion.
-
-(2 points) MongoDB Authentication
-- Implements basic authentication to ensure data privacy.
-
-(2 points) Task Sorting & Filtering
-- Allows users to sort tasks by due date and filter by completion status.
-
-10 points total out of 8 required points 
-
-
-## [Link to Initial Main Project File](https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-Youngsang-Cho1/tree/master/app.mjs) 
-
-## Annotations / References Used
-
-TBD
+MIT License © 2025 Aiden Cho  
