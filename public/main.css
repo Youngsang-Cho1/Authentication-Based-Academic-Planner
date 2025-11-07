@@ -1,43 +1,161 @@
-body {
-    width: 100%;
-    background-color: skyblue;
-    text-align: center;
-    font-family: Tahoma;
-    font-size:20px;
-}
-
-header {
-    background-color: white;
-    padding: 30px;
-    color: grey;
-}
-
-nav {
-    display: flex;
-    gap: 15px;
-}
-
-nav a {
-    color: navy;
-    margin: 0 10px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-h1 {
-    color: greenyellow;
-}
-
-form {
-    margin-top: 20px;
-}
-
-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 18px;
-    border-radius: 5px;
-}
+:root{
+    --bg:#f6f7fb;
+    --card:#ffffff;
+    --text:#1f2937;
+    --muted:#6b7280;
+    --brand:#2563eb;
+    --brand-600:#1d4ed8;
+    --brand-700:#1e40af;
+    --accent:#10b981;
+    --warn:#ef4444;
+    --border:#e5e7eb;
+    --ring:#93c5fd;
+    --radius:14px;
+    --shadow:0 10px 30px rgba(2,6,23,.08);
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#0b1220;
+      --card:#0f172a;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --brand:#3b82f6;
+      --brand-600:#2563eb;
+      --brand-700:#1d4ed8;
+      --accent:#34d399;
+      --warn:#f87171;
+      --border:#1f2937;
+      --ring:#2563eb;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1200px 600px at 10% -10%, rgba(37,99,235,.10), transparent),
+      radial-gradient(1200px 600px at 100% 0%, rgba(16,185,129,.10), transparent),
+      var(--bg);
+    color:var(--text);
+    font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Apple Color Emoji","Segoe UI Emoji";
+    line-height:1.5;
+    font-size:16px;
+  }
+  /* Header & Nav */
+  header{
+    position:sticky; top:0; z-index:50;
+    backdrop-filter:saturate(180%) blur(10px);
+    background:color-mix(in oklab, var(--card) 80%, transparent);
+    border-bottom:1px solid var(--border);
+    padding:10px 20px;
+    display:flex; gap:14px; align-items:center;
+  }
+  header > a[href="/tasks/new"]{display:none} /* hide stray empty anchor */
+  nav{display:flex; gap:12px; flex-wrap:wrap}
+  nav a{
+    display:inline-block;
+    padding:9px 14px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:700;
+    color:#fff;
+    background:linear-gradient(180deg, var(--brand), var(--brand-600));
+    box-shadow:0 4px 10px rgba(37,99,235,.25);
+    transition:transform .1s ease, filter .2s ease;
+  }
+  nav a:hover{filter:brightness(1.06); transform:translateY(-1px)}
+  nav a:focus-visible{outline:3px solid color-mix(in oklab, var(--ring) 55%, transparent); outline-offset:2px}
+  /* Layout */
+  main{max-width:1000px; margin:28px auto; padding:0 20px 60px}
+  /* Headings */
+  h1,h2,h3{margin:18px 0 10px; letter-spacing:.2px}
+  h1{font-size:2rem}
+  h2{font-size:1.35rem; position:relative}
+  h2::after{
+    content:""; display:block; width:48px; height:3px; margin-top:6px; border-radius:999px;
+    background:linear-gradient(90deg, var(--brand), var(--accent)); opacity:.7;
+  }
+  /* Cards & Sections */
+  form,.card,section,.error,main ul{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+  }
+  section{padding:12px 14px; margin:12px 0; display:flex; gap:16px; align-items:center; flex-wrap:wrap}
+  h2 + section{margin-top:10px}
+  section::before{content:"Overview"; font-weight:700; color:var(--muted); margin-right:8px}
+  /* Forms */
+  form{padding:22px; margin:18px 0; display:grid; gap:16px}
+  form div{display:grid; gap:6px}
+  label{font-size:.95rem; color:var(--muted); font-weight:600}
+  input[type="text"],input[type="password"],input[type="email"],input[type="date"],textarea,select{
+    width:100%; padding:10px 12px; border-radius:10px;
+    border:1px solid var(--border);
+    background:color-mix(in oklab, var(--card) 94%, transparent);
+    color:var(--text); font:inherit; outline:none;
+    transition:border-color .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  textarea{min-height:110px; resize:vertical}
+  input:focus,textarea:focus,select:focus{border-color:var(--brand); box-shadow:0 0 0 3px color-mix(in oklab, var(--ring) 35%, transparent)}
+  input[type="checkbox"]{width:18px; height:18px; accent-color:var(--brand)}
+  /* Buttons */
+  button,input[type="submit"]{
+    appearance:none; border:1px solid transparent;
+    background:linear-gradient(180deg, var(--brand), var(--brand-600));
+    color:#fff; font-weight:700; padding:11px 14px; border-radius:10px; cursor:pointer;
+    transition:transform .1s ease, box-shadow .15s ease, filter .2s ease;
+    box-shadow:0 6px 16px rgba(37,99,235,.25);
+  }
+  button:hover,input[type="submit"]:hover{filter:brightness(1.03); transform:translateY(-1px)}
+  button:active,input[type="submit"]:active{transform:translateY(0)}
+  button.secondary{background:transparent; color:var(--text); border-color:var(--border); box-shadow:none}
+  /* Delete action button in list */
+  form[method="POST"][action*="/delete"] button{
+    background:linear-gradient(180deg, var(--warn), color-mix(in oklab, var(--warn) 85%, #000));
+    box-shadow:0 6px 16px rgba(239,68,68,.25);
+  }
+  /* Flash/Error */
+  .error{
+    border-left:4px solid var(--warn);
+    color:inherit; padding:12px 14px; margin:14px 0;
+    background:color-mix(in oklab, var(--warn) 8%, var(--card));
+  }
+  /* Add Task call-to-action (hidden on login/register via :has) */
+  .primary-btn{
+    display:inline-block; margin:18px 0 24px; padding:11px 16px;
+    border-radius:10px; background:linear-gradient(180deg, var(--accent), #059669);
+    color:#fff; font-weight:800; text-decoration:none;
+    box-shadow:0 8px 18px rgba(16,185,129,.28);
+    transition:transform .1s ease, filter .2s ease;
+  }
+  .primary-btn:hover{filter:brightness(1.06); transform:translateY(-1px)}
+  main:has(form[action="/login"]) .primary-btn,
+  main:has(form[action="/register"]) .primary-btn{display:none}
+  /* Task list cards */
+  main ul{
+    list-style:none; padding:14px; margin:16px 0;
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); gap:14px;
+  }
+  main ul li{
+    border:1px solid var(--border); border-radius:12px; padding:14px;
+    background:color-mix(in oklab, var(--card) 98%, transparent);
+    display:grid; gap:10px;
+  }
+  main ul li .meta{font-size:.9rem; color:var(--muted)}
+  main ul li a{text-decoration:none; font-weight:700; color:var(--brand-700)}
+  main ul li a:hover{text-decoration:underline}
+  main ul li .actions{display:flex; gap:8px; align-items:center}
+  main ul li form[method="POST"][action*="/delete"]{display:inline}
+  /* A11y */
+  :focus-visible{outline:3px solid color-mix(in oklab, var(--ring) 50%, transparent); outline-offset:2px; border-radius:8px}
+  @media (prefers-reduced-motion:reduce){
+    *{animation-duration:.001ms!important; animation-iteration-count:1!important; transition-duration:.001ms!important; scroll-behavior:auto!important}
+  }
+  /* Small header tweaks on wider screens */
+  @media (min-width:640px){
+    header{padding:12px 24px}
+  }
+  
+  
